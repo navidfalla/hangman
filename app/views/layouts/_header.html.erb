@@ -1,0 +1,36 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<div class="container-fluid">
+		<nav>
+			<ul class="nav navbar-nav">
+				<%= link_to "HANGMAN", root_path, class: "navbar-brand" %>
+				<li>
+					<% if current_user %>
+						<span class="navbar-brand"> Hi, <%= current_user.name %></span>
+					<% end %>
+				</li>
+				<li>
+					<% if !@game.nil? %>
+						<% if !@game.max_mistakes.nil? %>
+							<span class="navbar-brand">			- You Have	<%= @game.lives_left %> More Guesses </span>
+						<% end %>
+					<% end %>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to "Leader Board", leaderboard_path %></li>
+				<% if !@game.nil? %>
+					<% if !@game.max_mistakes.nil? %>
+						<li><%= link_to "New Game", @game, method: :delete %></li>
+					<% end %>
+				<% end %>
+				<% if current_user %>
+					<li><%= link_to "Edit Account", edit_user_registration_path %></li>
+					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+				<% else %>
+					<li><%= link_to "Login", new_user_session_path %></li>
+					<li><%= link_to "Register", new_user_registration_path %></li>
+				<% end%>
+			</ul>
+		</nav>
+	</div>
+</header>

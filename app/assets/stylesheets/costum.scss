@@ -1,0 +1,79 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+    padding-top: 60px;
+    height: 100%;
+}
+
+.navbar,
+.footer {
+    background-color: #5d55c2;
+}
+
+.footer {
+    padding: 10px;
+}
+
+.container {
+    color: black;
+    text-align: center;
+    h1 {
+        font-size: 8em;
+        margin-top: 30px;
+    }
+    h2 {
+        font-size: 4em;
+        margin: 60px 0 10px 0;
+    }
+    h3 {
+        font-size: 2em;
+    }
+    .btn-lg {
+        background-color: #5d55c2;
+        color: white;
+        border-radius: 0
+    }
+    .btn-group {
+        margin: 10px 0 50px 0;
+        .btn {
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 0;
+            font-size: 2em;
+            border-radius: 0;
+        }
+    }
+    .img_welcome img {
+        margin-top: -30px;
+        height: 300px;
+    }
+    .hangman_figure {
+        h2 {
+            margin-bottom: 0;
+        }
+        img {
+            height: 500px;
+            margin-top: -12px;
+            margin-left: -100px;
+        }
+        .guess {
+            margin: 60px 0 30px 0;
+            padding: 20px 0 20px 0;
+            color: #b1452b;
+            border: 1px solid #5d55c2;
+        }
+        .select_letter {
+            text-align: center;
+            .btn-group {
+                width: auto;
+                margin: 10px 0 0 0;
+                .btn {
+                    width: auto;
+                    margin: 0px -3px 20px -2px;
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+}

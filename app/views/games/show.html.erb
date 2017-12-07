@@ -1,0 +1,38 @@
+<div class="hangman_figure">
+	<h2>HANGMAN</h2>
+	</br>
+	<div class="row">
+		<div class="col-sm-6">
+			<%= image_tag(hangman_figure(@game)) %>
+		</div>
+		<div class="col-sm-6">
+			<h3 class="guess">
+				<% @game.word_array.each do |character| %>
+					<% if @game.correct_guesses.include?(character) || @game.finished? %>
+						<%= character %>
+					<% else %>
+						_
+					<% end %>
+				<% end %>
+			</h3>
+
+			<div class="select_letter">
+				<h3 >SELECT A LETTER</h3>
+				<%= form_for([@game, @game.guesses.build]) do |f| %>
+					<div class="btn-group" data-toggle="buttons">
+						<%= render partial: 'button_row', locals: {f: f, game: @game, row: "QWERTYUIOP"} %>
+						<%= render partial: 'button_row', locals: {f: f, game: @game, row: "ASDFGHJKL"} %>
+						<%= render partial: 'button_row', locals: {f: f, game: @game, row: "ZXCVBNM"} %>
+					</div>
+					<div class="row">
+						<% if @game.finished?%>
+							<%= f.submit "SELECT", class: "btn btn-lg", disabled: true %>
+						<% else %>
+							<%= f.submit "SELECT", class: "btn btn-lg" %>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

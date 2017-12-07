@@ -1,0 +1,14 @@
+<h2>HANGMAN</h2>
+</br>
+</br>
+<div class="img_welcome"><%= image_tag("win.png") %></div>
+<h3 id="welcome_h2">ON RAILS</h3>
+<%= form_for @game do |f| %>
+	<div class="btn-group" data-toggle="buttons">
+		<label>
+			<%= f.radio_button :max_mistakes, 10, style: "display:none", checked: true %>
+		</label>
+	</div>
+	<div><%= f.submit "New Game!", class: "btn btn-lg col-sm-4 col-sm-offset-4" %></div>
+	</br>
+<% end %>

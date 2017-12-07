@@ -1,0 +1,13 @@
+<div class="row">
+	<% row.chars.each do |character| %>
+		<% if game.already_guessed?(character) || game.finished? %>
+			<label class="btn btn-warning disabled">
+				<%= f.radio_button :letter, character, style: "display:none" %><%= character %>
+			</label>
+		<% else %>
+			<label class="btn btn-warning">
+				<%= f.radio_button :letter, character, style: "display:none", required: "required" %> <%= character %>
+			</label>
+		<% end %>
+	<% end %>
+</div>
